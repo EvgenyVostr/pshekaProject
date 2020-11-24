@@ -1,54 +1,49 @@
 "use strict"; /* сторгий режим(не позволяет использовать устаревшие функции и тд) */
 
-/* let number = 5; 
-const leftBorderWidth = 1; 
-
-number = 10;
-console.log(number);
-
-const obj = {
-    a:50,
-    b:"23jjj"
-};
-obj.a=10;
-console.log(obj);
-const lrm = 'lorem';
-console.log(lrm); */
-let result = confirm("are u ready??");
-if (result == true) {
-
-
-    const obj = {
-        name: "psheka",
-        age: 23,
-        coutry: "Russia",
-        isMaried: true,
-        sex: "feMale"
-    };
-
-    obj.name = prompt("watz ur name", "psheka");
-    obj.age = +prompt("how old a u?", "23");
-    obj.coutry = prompt("where r u?", "Russia");
-    obj.isMaried = confirm("a u married?");
-    obj.sex = prompt("ur sex", "Male");
-
-
-
-    if (obj.sex == "Male") {
-
-        if (obj.isMaried == true) {
-            alert(`${obj.name} is married. He is ${obj.age} years old. And he is from ${obj.coutry}!`);
-        } else {
-            alert(`${obj.name} is not married. He is ${obj.age} years old. And he is from ${obj.coutry}!`);
-        }
-    } else {
-        if (obj.isMaried == true) {
-            alert(`${obj.name} is married. She is ${obj.age} years old. And she is from ${obj.coutry}!`);
-        } else {
-            alert(`${obj.name} is not married. She is ${obj.age} years old. And she is from ${obj.coutry}!`);
-        }
+/* Задание на урок:
+1) Создать переменную numberOfFilms и в неё поместить ответ от пользователя на вопрос:
+'Сколько фильмов вы уже посмотрели?'
+2) Создать объект personalMovieDB и в него поместить такие свойства:
+    - count - сюда передается ответ на первый вопрос
+    - movies - в это свойство поместить пустой объект
+    - actors - тоже поместить пустой объект
+    - genres - сюда поместить пустой массив
+    - privat - в это свойство поместить boolean(логическое) значение false
+3) Задайте пользователю по два раза вопросы:
+    - 'Один из последних просмотренных фильмов?'
+    - 'На сколько оцените его?'
+Ответы стоит поместить в отдельные переменные
+Записать ответы в объект movies в формате: 
+    movies: {
+        'logan': '8.1'
     }
-    alert('now fukoff');
-} else {
-    alert('fukoff');
-}
+Проверить, чтобы все работало без ошибок в консоли */
+
+const _numberOfFilms = +prompt("How many films did u see?",'');
+
+
+
+
+let personalMovieDB = {
+    count: _numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat:false
+};
+
+const _lastMovie = prompt("what is the last film did u see?",''),
+      _Rate = +prompt("how did u rate it from 0 to 10",''),
+      secMovie = prompt("what is the last film did u see?",''),
+      secRate = +prompt("how did u rate it from 0 to 10",'');
+
+personalMovieDB.movies = {
+[_lastMovie]:_Rate,
+[secMovie]:secRate
+};
+
+
+
+
+console.log(personalMovieDB);
+
